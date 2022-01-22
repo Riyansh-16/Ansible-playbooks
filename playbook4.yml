@@ -1,0 +1,9 @@
+---
+- name: Install/Uninstall s/w applications
+  hosts: webservers
+  tasks:
+   - name: install/uninstall
+     apt:
+      name: "{{a}}"
+      state: "{{b}}"
+      update_cache: "{{c}}"

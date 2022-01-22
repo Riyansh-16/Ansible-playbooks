@@ -1,0 +1,13 @@
+---
+- name: create users and files on all the nodes
+  hosts: webservers
+  tasks: 
+   - name: create user
+     user:
+      name: "{{a}}"
+      password: "{{b}}"
+      home: "{{c}}"
+   - name: create file
+     file:
+      name: "{{d}}"
+      state: "{{e}}"

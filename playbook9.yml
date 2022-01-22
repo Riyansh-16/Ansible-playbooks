@@ -1,0 +1,12 @@
+---
+- name: Creating ubuntu container in interactive mode
+  hosts: webservers
+  tasks:
+   - name: Creating ubuntu container
+     docker_container:
+      name: myubuntu
+      image: ubuntu
+      interactive: true
+      tty : true
+      volumes:
+       - /data

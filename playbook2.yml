@@ -1,0 +1,26 @@
+---
+- name: Installing apache2 on all the nodes
+  hosts: webservers
+  tasks:
+   - name: install apache
+     apt:
+      name: apache2
+      state: present
+      update_cache: yes
+   - name: Edit the index file
+     copy:
+      content: "Welcome to Devops"
+      dest: /var/www/html/index.html
+   - name: Restart apache2
+     service:
+      name: apache2
+      state: restarted
+   - name: Check the URL on Server1
+     uri:
+      url: http://172.31.22.14/
+      status_code: 200     
+   - name: Check the URL on Server2
+     uri:
+      url: http://172.31.16.232
+      status_code: 200
+

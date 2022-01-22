@@ -1,0 +1,13 @@
+---
+- name: Creating user on all the nodes
+  hosts: webservers
+  tasks:
+   - name: create user
+     user:
+      name: Vidyullatha
+      password: Vidyullatha
+      uid: 9999
+      home: /home/ubuntu/Latha
+      comment: "A normal user"
+      shell: /bin/bash
+...
